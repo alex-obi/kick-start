@@ -1,12 +1,12 @@
 import numpy as np
 
 def swap(i, j):
-    return L[i] * S[j] < L[j] * S[i]
+    return E[j] - min(L[i] * S[j], E[i]) > E[i] - min(L[j] * S[i], E[j])
 
 def sort():
     P = np.arange(N)
     for n in range(N - 1):
-        for k in range(N - n - 1):
+        for k in range(N - 1):
             if swap(P[k], P[k+1]): # l < k
                 i = P[k]
                 P[k] = P[k+1]
@@ -16,12 +16,20 @@ def sort():
 def max_energy(time, i):
     if i >= N: return 0
     j = P[i]
-    en = max(0, E[j] - L[j] * time)
+    en_diff = E[j] - L[j] * time
+    en = max(0, en_diff)
     if en > 0:
+        # There is still some energy remaining in the stones
         en1 = max_energy(time + S[j], i + 1) + en
     else:
+        # All energy is expired
         en1 = 0
-    en2 = max_energy(time, i + 1)
+    if en_diff < 0:
+        # The ordering does not preset a definite choice
+        en2 = max_energy(time, i + 1)
+    else:
+        # The ordering presets the next stone
+        en2 = 0
     return max(en1, en2)
 
 T = int(input())
