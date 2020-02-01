@@ -14,7 +14,7 @@ $ bash runcc.sh [FILE] [INPUT]
 $ bash runpy.sh [FILE] [INPUT]
 ```
 to compile and/or execute C++ and Python files locally.
-`[FILE]` is the filename of code (without extension) and `[INPUT]` defines the file with input content.
+`[FILE]` is the filename of code and `[INPUT]` defines the file with input content.
 At runtime, the programs are fed with the entries defined in `[INPUT]`.
 Print the output directly into a file:
 ```
