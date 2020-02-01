@@ -1,3 +1,6 @@
 #!/bin/bash
-g++ -g -Wall -Wextra -pedantic-errors $1.cc -o $1.out
-cat $1.inp | ./$1.out
+FILE=$1
+INPUT=$2
+O=${FILE%%.*}.o
+g++ -g -Wall -Wextra -pedantic-errors $FILE -o $O
+cat $INPUT | ./$O

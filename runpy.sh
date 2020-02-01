@@ -1,2 +1,5 @@
 #!/bin/bash
-cat $1.inp | python $1.py
+FILE=$1
+INPUT=$2
+timestamp=$(date +%Y%m%d-%H%M%S)
+cat $INPUT | python $FILE
