@@ -72,6 +72,17 @@ def min_fun(x, y=None):
         # Double case
         return min(x, y)
 
+def max_fun(x, y=None):
+    if x is None:
+        # Empty case
+        return 0
+    elif y is None:
+        # Single case
+        return x
+    else:
+        # Double case
+        return max(x, y)
+
 # Test code
 ###########
 
