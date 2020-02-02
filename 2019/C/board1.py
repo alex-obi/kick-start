@@ -32,7 +32,7 @@ def max_rect_hist(x):
         max_rect = max(max_rect, x[ix] * length)
     return max_rect
 
-# Calc column wise segments with same numbers
+# Calc column wise max rect
 def max_rect():
     best_max = 0
     for c in range(C):
