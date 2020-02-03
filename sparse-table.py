@@ -10,7 +10,7 @@ class SparseTable():
     def __init__(self, array, query_fun):
         n = len(array)
         self.query_fun = query_fun
-        self.mem = np.empty((n, math.ceil(math.log2(n))), dtype=int)
+        self.mem = np.empty((n, int(math.log2(n)) + 1), dtype=int)
         self.mem[:, 0] = array
         j = 1 # 2**j is size of interval
         while (1 << j) <= n:
